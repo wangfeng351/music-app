@@ -4,7 +4,10 @@
       <div class="nav-left">
         <ul class="left-ul">
           <li>
-            <img src="../assets/image/yinle.png" alt />
+            <img
+              src="../assets/image/yinle.png"
+              alt
+            />
           </li>
           <li class="active">推荐</li>
           <li>排行榜</li>
@@ -17,18 +20,31 @@
         </ul>
       </div>
       <div class="nav-right">
-        <div style="display:flex" v-if="avatar === '' ">
+        <div
+          style="display:flex"
+          v-if="avatar === '' "
+        >
           <li>
             <router-link to="/login">登录</router-link>
           </li>
           <li>/</li>
           <li>注册</li>
         </div>
-        <div style="display:flex;" v-if="avatar !== '' ">
-          <el-avatar :size="60" src="https://empty" >
-            <img :src="avatar"  />
+        <div
+          style="display:flex;"
+          v-if="avatar !== '' "
+        >
+          <el-avatar
+            :size="60"
+            src="https://empty"
+          >
+            <img :src="avatar" />
           </el-avatar>
-         <el-button @click="exist()" style="margin-left:5px" type="info">注销</el-button>
+          <el-button
+            @click="exist()"
+            style="margin-left:5px"
+            type="info"
+          >注销</el-button>
         </div>
       </div>
     </div>
@@ -41,22 +57,22 @@ export default {
   data() {
     return {
       user: JSON.parse(localStorage.getItem("user")),
-      avatar: ''
+      avatar: ""
     };
   },
 
   components: {},
   created() {
-    if(this.user != null){
-        this.avatar = this.user.avatar
+    if (this.user != null) {
+      this.avatar = this.user.avatar;
     }
   },
   mounted() {},
   methods: {
-      exist(){
-          localStorage.removeItem("user");
-          this.avatar = ''
-      }
+    exist() {
+      localStorage.removeItem("user");
+      this.avatar = "";
+    }
   },
   computed: {}
 };
